@@ -1,0 +1,48 @@
+open class SmartDevice(val name: String)
+{
+    open var deviceStatus = "online"
+
+    open fun turnOn()
+    {
+        println("Smart device ($name) is turned on.")
+    }
+}
+
+class SmartTvDevice(tvDeviceName: String) : SmartDevice(name = tvDeviceName)
+{
+    override var deviceStatus = "on"
+
+    override fun turnOn()
+    {
+        println("$name smart TV is turned on.")
+    }
+}
+
+class SmartLightDevice(lightDeviceName: String) : SmartDevice(name = lightDeviceName)
+{
+    override var deviceStatus = "ON"
+
+    override fun turnOn()
+    {
+        println("$name smart light is now turned on.")
+    }
+}
+
+fun main()
+{
+    val smartDevice = SmartDevice(name = "Wyze Bulb Color")
+    val tvDevice = SmartTvDevice(tvDeviceName = "LG")
+    val lightDevice = SmartLightDevice(lightDeviceName = "Wyze")
+
+    println(smartDevice.name)           // Wyze Bulb Color
+    println(smartDevice.deviceStatus)   // online
+    smartDevice.turnOn()                // Smart device (Wyze Bulb Color) is turned on.
+
+    println("\n${tvDevice.name}")       // LG
+    println(tvDevice.deviceStatus)      // on
+    tvDevice.turnOn()                   // LG smart TV is turned on.
+
+    println("\n${lightDevice.name}")    // Wyze
+    println(lightDevice.deviceStatus)   // ON
+    lightDevice.turnOn()                // Wyze smart light is now turned on.
+}
