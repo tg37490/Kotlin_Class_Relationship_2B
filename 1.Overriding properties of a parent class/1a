@@ -1,0 +1,25 @@
+open class SmartDevice()
+{
+    open var deviceStatus = "online"
+}
+
+class SmartTvDevice() : SmartDevice()
+{
+    override var deviceStatus = "on"
+}
+
+class SmartLightDevice() : SmartDevice()
+{
+    override var deviceStatus = "ON"
+}
+
+fun main()
+{
+    val smartDevice = SmartDevice()
+    val tvDevice = SmartTvDevice()
+    val lightDevice = SmartLightDevice()
+
+    println(smartDevice.deviceStatus)   // online
+    println(tvDevice.deviceStatus)      // on
+    println(lightDevice.deviceStatus)   // ON
+}
