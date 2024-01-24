@@ -1,0 +1,60 @@
+open class SmartDevice()
+{
+    open var deviceStatus = "online"
+
+    open fun turnOn()
+    {
+        println("1.Device status: $deviceStatus")
+
+        deviceStatus = "ONLINE"
+        println("2.Device status: $deviceStatus\n")
+    }
+}
+
+class SmartTvDevice() : SmartDevice()
+{
+    override var deviceStatus = "on"
+
+    override fun turnOn()
+    {
+        println("1.Device status: $deviceStatus")
+
+        deviceStatus = "ON"
+        println("2.Device status: $deviceStatus\n")
+    }
+}
+
+class SmartLightDevice() : SmartDevice()
+{
+    override var deviceStatus = "ON"
+
+    override fun turnOn()
+    {
+        println("1.Device status: $deviceStatus")
+
+        deviceStatus = "on & on"
+        println("2.Device status: $deviceStatus\n")
+    }
+}
+
+fun main()
+{
+    val smartDevice = SmartDevice()
+    val tvDevice = SmartTvDevice()
+    val lightDevice = SmartLightDevice()
+
+    println("smartDevice.deviceStatus: ${smartDevice.deviceStatus}")    // online
+    println("smartDevice.turnOn():")
+    smartDevice.turnOn()                                                // 1.Device status: online
+                                                                        // 2.Device status: ONLINE
+
+    println("tvDevice.deviceStatus: ${tvDevice.deviceStatus}")          // on
+    println("tvDevice.turnOn():")
+    tvDevice.turnOn()                                                   // 1.Device status: on
+                                                                        // 2.Device status: ON
+
+    println("lightDevice.deviceStatus: ${lightDevice.deviceStatus}")    // ON
+    println("lightDevice.turnOn():")
+    lightDevice.turnOn()                                                // 1.Device status: ON
+                                                                        // 2.Device status: on & on
+}
