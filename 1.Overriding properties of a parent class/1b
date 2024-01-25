@@ -4,10 +4,10 @@ open class SmartDevice()
 
     fun turnOn()
     {
-        println("11.Device status: $deviceStatus")
+        println("1.Device status: $deviceStatus")
 
         deviceStatus = "ONLINE"
-        println("12.Device status: $deviceStatus\n")
+        println("2.Device status: $deviceStatus\n")
     }
 }
 
